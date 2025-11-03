@@ -594,6 +594,8 @@
 
     <!-- Month labels -->    </g>
 
+    <!-- Month labels -->    </g>
+
     <!-- Month labels -->
     <g transform="translate(266, 445)" class="grid-label">
       <text x="0" y="0">Jan</text>
