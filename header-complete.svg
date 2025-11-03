@@ -769,7 +769,7 @@
 
       <g class="tech-badge" style="animation-delay: 0.55s" transform="translate(90, 0)">
         <rect x="0" y="0" width="90" height="35" rx="17.5" fill="#7b2ff7" opacity="0.9"/>
-        <text x="45" y="23" text-anchor="middle" fill="white" class="badge-text">DID/VC</text>
+        <text x="45" y="23" text-anchor="middle" fill="white" class="badge-text">AI Agents</text>
       </g>
     </g>
   </g>
