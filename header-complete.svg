@@ -119,13 +119,31 @@
       animation: floatSlow 8s ease-in-out infinite;
     }
 
-    /* Graph Network Styles */
-    .graph-node {
-      animation: nodePulse 3s ease-in-out infinite;
+    /* Blockchain Block Styles */
+    .blockchain-block {
+      animation: blockSlideDown 12s linear infinite;
+      transform: translateY(-150px);
+      opacity: 0;
     }
 
-    .graph-line {
-      animation: linePulse 3s ease-in-out infinite;
+    .block-hash {
+      font-size: 7px;
+      font-family: 'Courier New', monospace;
+      fill: #00d4ff;
+      opacity: 0.7;
+    }
+
+    .block-number {
+      font-size: 9px;
+      font-family: 'Orbitron', monospace;
+      fill: #7b2ff7;
+      font-weight: 700;
+    }
+
+    .block-chain-line {
+      stroke: #00d4ff;
+      stroke-width: 2;
+      opacity: 0.4;
     }
 
     /* Keyframe Animations */
@@ -165,82 +183,103 @@
       100% { transform: translate(0, 0); opacity: 0.2; }
     }
 
-    @keyframes nodePulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.8; }
-    }
-
-    @keyframes linePulse {
-      0%, 100% { opacity: 0.1; }
-      50% { opacity: 0.3; }
+    @keyframes blockSlideDown {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      5% {
+        opacity: 0.7;
+      }
+      95% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(710px);
+        opacity: 0;
+      }
     }
   </style>
 
   <!-- Background -->
   <rect width="1200" height="610" fill="url(#bgGrad)"/>
 
-  <!-- Graph Network Layer -->
-  <g id="graph-network" opacity="0.8">
-    <!-- Network connections (lines) -->
-    <line class="graph-line" x1="150" y1="100" x2="280" y2="180" stroke="#00d4ff" stroke-width="1.5" style="animation-delay: 0s"/>
-    <line class="graph-line" x1="280" y1="180" x2="450" y2="140" stroke="#00d4ff" stroke-width="1.5" style="animation-delay: 0.3s"/>
-    <line class="graph-line" x1="450" y1="140" x2="620" y2="200" stroke="#7b2ff7" stroke-width="1.5" style="animation-delay: 0.6s"/>
-    <line class="graph-line" x1="620" y1="200" x2="780" y2="150" stroke="#7b2ff7" stroke-width="1.5" style="animation-delay: 0.9s"/>
-    <line class="graph-line" x1="780" y1="150" x2="950" y2="220" stroke="#00d4ff" stroke-width="1.5" style="animation-delay: 1.2s"/>
-    <line class="graph-line" x1="950" y1="220" x2="1050" y2="170" stroke="#00d4ff" stroke-width="1.5" style="animation-delay: 1.5s"/>
+  <!-- Blockchain Animation - Left Side -->
+  <g id="blockchain-left">
+    <!-- Fixed vertical chain line that stays in place -->
+    <line x1="70" y1="0" x2="70" y2="610" stroke="#00d4ff" stroke-width="2" opacity="0.3" stroke-dasharray="8,4"/>
 
-    <line class="graph-line" x1="180" y1="380" x2="320" y2="450" stroke="#7b2ff7" stroke-width="1.5" style="animation-delay: 0.4s"/>
-    <line class="graph-line" x1="320" y1="450" x2="480" y2="410" stroke="#7b2ff7" stroke-width="1.5" style="animation-delay: 0.7s"/>
-    <line class="graph-line" x1="480" y1="410" x2="640" y2="480" stroke="#00d4ff" stroke-width="1.5" style="animation-delay: 1.0s"/>
-    <line class="graph-line" x1="640" y1="480" x2="820" y2="440" stroke="#00d4ff" stroke-width="1.5" style="animation-delay: 1.3s"/>
-    <line class="graph-line" x1="820" y1="440" x2="980" y2="500" stroke="#7b2ff7" stroke-width="1.5" style="animation-delay: 1.6s"/>
+    <!-- Animated blocks sliding down the chain -->
+    <g class="blockchain-block" style="animation-delay: 0s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2847</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x4f2a...9c1b</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 142</text>
+      <circle cx="70" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
 
-    <line class="graph-line" x1="280" y1="180" x2="320" y2="450" stroke="#00d4ff" stroke-width="1" style="animation-delay: 0.5s" opacity="0.6"/>
-    <line class="graph-line" x1="620" y1="200" x2="640" y2="480" stroke="#7b2ff7" stroke-width="1" style="animation-delay: 0.8s" opacity="0.6"/>
-    <line class="graph-line" x1="450" y1="140" x2="480" y2="410" stroke="#00d4ff" stroke-width="1" style="animation-delay: 1.1s" opacity="0.6"/>
-    <line class="graph-line" x1="780" y1="150" x2="820" y2="440" stroke="#7b2ff7" stroke-width="1" style="animation-delay: 1.4s" opacity="0.6"/>
+    <g class="blockchain-block" style="animation-delay: 3s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2848</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x7a8e...3d4f</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 198</text>
+      <circle cx="70" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
 
-    <!-- Network nodes -->
-    <circle class="graph-node" cx="150" cy="100" r="5" fill="#00d4ff" style="animation-delay: 0s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="280" cy="180" r="6" fill="#00d4ff" style="animation-delay: 0.3s">
-      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="450" cy="140" r="5" fill="#7b2ff7" style="animation-delay: 0.6s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="620" cy="200" r="6" fill="#7b2ff7" style="animation-delay: 0.9s">
-      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="780" cy="150" r="5" fill="#00d4ff" style="animation-delay: 1.2s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="950" cy="220" r="6" fill="#00d4ff" style="animation-delay: 1.5s">
-      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="1050" cy="170" r="5" fill="#7b2ff7" style="animation-delay: 1.8s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
+    <g class="blockchain-block" style="animation-delay: 6s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2849</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x9b2c...5e7a</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 173</text>
+      <circle cx="70" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
 
-    <circle class="graph-node" cx="180" cy="380" r="5" fill="#7b2ff7" style="animation-delay: 0.4s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="320" cy="450" r="6" fill="#7b2ff7" style="animation-delay: 0.7s">
-      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="480" cy="410" r="5" fill="#00d4ff" style="animation-delay: 1.0s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="640" cy="480" r="6" fill="#00d4ff" style="animation-delay: 1.3s">
-      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="820" cy="440" r="5" fill="#7b2ff7" style="animation-delay: 1.6s">
-      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="graph-node" cx="980" cy="500" r="6" fill="#7b2ff7" style="animation-delay: 1.9s">
-      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-    </circle>
+    <g class="blockchain-block" style="animation-delay: 9s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2853</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x1f5d...7b3c</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 167</text>
+      <circle cx="70" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Blockchain Animation - Right Side -->
+  <g id="blockchain-right">
+    <!-- Fixed vertical chain line that stays in place -->
+    <line x1="1130" y1="0" x2="1130" y2="610" stroke="#7b2ff7" stroke-width="2" opacity="0.3" stroke-dasharray="8,4"/>
+
+    <!-- Animated blocks sliding down the chain -->
+    <g class="blockchain-block" style="animation-delay: 1.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2850</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x3c5f...8a2e</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 156</text>
+      <circle cx="1130" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 4.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2851</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x6d1a...4b9c</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 224</text>
+      <circle cx="1130" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 7.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2852</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x8e4b...2f7d</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 189</text>
+      <circle cx="1130" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 10.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2854</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x2a9f...6e8d</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 201</text>
+      <circle cx="1130" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
   </g>
 
   <!-- Animated Background Particles -->
