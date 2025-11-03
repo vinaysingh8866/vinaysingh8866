@@ -119,12 +119,12 @@ async function main() {
     const now = new Date();
     const yearsCoding = Math.max(1, Math.floor((now - createdDate) / (365.25 * 24 * 60 * 60 * 1000)));
     const repositories = userData.repositories.totalCount;
-    const commits = userData.contributionsCollection.totalCommitContributions;
+    // Use total contributions (all activity) instead of just commits
+    const totalContributions = calendar.totalContributions;
 
     console.log(`Years Coding: ${yearsCoding}`);
     console.log(`Repositories: ${repositories}`);
-    console.log(`Commits: ${commits}`);
-    console.log(`Total contributions: ${calendar.totalContributions}`);
+    console.log(`Total Contributions: ${totalContributions}`);
     console.log(`Weeks of data: ${calendar.weeks.length}`);
 
     // Generate the contribution grid
@@ -136,7 +136,7 @@ async function main() {
     // Replace stats
     svgTemplate = svgTemplate.replace(/{{YEARS_CODING}}/g, `${yearsCoding}+`);
     svgTemplate = svgTemplate.replace(/{{REPOSITORIES}}/g, `${repositories}+`);
-    svgTemplate = svgTemplate.replace(/{{COMMITS}}/g, `${commits >= 1000 ? Math.floor(commits / 1000) + 'k' : commits}+`);
+    svgTemplate = svgTemplate.replace(/{{CONTRIBUTIONS}}/g, `${totalContributions >= 1000 ? (totalContributions / 1000).toFixed(1) + 'k' : totalContributions}+`);
 
     // Replace the contribution grid section
     const gridStart = svgTemplate.indexOf('    <!-- Contribution grid: 52 weeks');
