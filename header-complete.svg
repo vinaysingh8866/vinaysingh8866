@@ -751,7 +751,7 @@
 
       <g class="tech-badge" style="animation-delay: 0.4s" transform="translate(680, 0)">
         <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#7b2ff7" opacity="0.9"/>
-        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">Node.js</text>
+        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">OpenVM</text>
       </g>
 
       <g class="tech-badge" style="animation-delay: 0.45s" transform="translate(790, 0)">
