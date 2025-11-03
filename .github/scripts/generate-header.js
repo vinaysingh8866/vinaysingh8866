@@ -147,7 +147,7 @@ async function main() {
     }
 
     const beforeGrid = svgTemplate.substring(0, gridStart);
-    const afterGrid = svgTemplate.substring(gridEnd);
+    const afterGrid = svgTemplate.substring(gridEnd + '    </g>\n\n    <!-- Month labels -->'.length);
 
     const newSvg = beforeGrid +
       '    <!-- Contribution grid: 52 weeks (auto-generated) -->\n' +
