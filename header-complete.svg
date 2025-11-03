@@ -731,7 +731,7 @@
 
       <g class="tech-badge" style="animation-delay: 0.2s" transform="translate(220, 0)">
         <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#f107a3" opacity="0.9"/>
-        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">Web3.js</text>
+        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">DIDComm</text>
       </g>
 
       <g class="tech-badge" style="animation-delay: 0.25s" transform="translate(330, 0)">
