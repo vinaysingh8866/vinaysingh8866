@@ -140,20 +140,20 @@ async function main() {
 
     // Replace the contribution grid section
     const gridStart = svgTemplate.indexOf('    <!-- Contribution grid: 52 weeks');
-    const gridEnd = svgTemplate.indexOf('    </g>\n\n    <!-- Month labels -->');
+    const gridEnd = svgTemplate.indexOf('  </g>\n\n  <!-- SECTION 4: TECH STACK');
 
     if (gridStart === -1 || gridEnd === -1) {
       throw new Error('Could not find contribution grid markers in SVG template');
     }
 
     const beforeGrid = svgTemplate.substring(0, gridStart);
-    const afterGrid = svgTemplate.substring(gridEnd + '    </g>\n\n    <!-- Month labels -->'.length);
+    const afterGrid = svgTemplate.substring(gridEnd);
 
     const newSvg = beforeGrid +
       '    <!-- Contribution grid: 52 weeks (auto-generated) -->\n' +
       '    <g transform="translate(266, 330)">\n' +
       contributionGrid +
-      '    </g>\n\n    <!-- Month labels -->' +
+      '    </g>\n\n' +
       afterGrid;
 
     // Write the updated SVG
