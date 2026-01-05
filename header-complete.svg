@@ -706,7 +706,8 @@
       <rect class="contrib-cell" x="700" y="60" width="12" height="12" rx="2" fill="#0d3d56" opacity="1" style="animation-delay: 3.64s"/>
       <rect class="contrib-cell" x="700" y="75" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.65s"/>
       <rect class="contrib-cell" x="700" y="90" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.66s"/>
-      <rect class="contrib-cell" x="714" y="0" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.67s"/>
+      <rect class="contrib-cell" x="714" y="0" width="12" height="12" rx="2" fill="#0d3d56" opacity="1" style="animation-delay: 3.67s"/>
+      <rect class="contrib-cell" x="714" y="15" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.68s"/>
     </g>
 
   </g>
