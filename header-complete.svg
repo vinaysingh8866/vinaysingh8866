@@ -575,7 +575,7 @@
       <rect class="contrib-cell" x="434" y="90" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.33s"/>
       <rect class="contrib-cell" x="448" y="0" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 2.34s"/>
       <rect class="contrib-cell" x="448" y="15" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 2.35s"/>
-      <rect class="contrib-cell" x="448" y="30" width="12" height="12" rx="2" fill="#0d3d56" opacity="1" style="animation-delay: 2.36s"/>
+      <rect class="contrib-cell" x="448" y="30" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.36s"/>
       <rect class="contrib-cell" x="448" y="45" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 2.37s"/>
       <rect class="contrib-cell" x="448" y="60" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.38s"/>
       <rect class="contrib-cell" x="448" y="75" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.39s"/>
@@ -630,7 +630,7 @@
       <rect class="contrib-cell" x="546" y="75" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.88s"/>
       <rect class="contrib-cell" x="546" y="90" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 2.89s"/>
       <rect class="contrib-cell" x="560" y="0" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 2.90s"/>
-      <rect class="contrib-cell" x="560" y="15" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.91s"/>
+      <rect class="contrib-cell" x="560" y="15" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.8" style="animation-delay: 2.91s"/>
       <rect class="contrib-cell" x="560" y="30" width="12" height="12" rx="2" fill="#0d3d56" opacity="1" style="animation-delay: 2.92s"/>
       <rect class="contrib-cell" x="560" y="45" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 2.93s"/>
       <rect class="contrib-cell" x="560" y="60" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 2.94s"/>
@@ -707,7 +707,8 @@
       <rect class="contrib-cell" x="700" y="75" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.65s"/>
       <rect class="contrib-cell" x="700" y="90" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.66s"/>
       <rect class="contrib-cell" x="714" y="0" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.5" style="animation-delay: 3.67s"/>
-      <rect class="contrib-cell" x="714" y="15" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.68s"/>
+      <rect class="contrib-cell" x="714" y="15" width="12" height="12" rx="2" fill="#0d3d56" opacity="1" style="animation-delay: 3.68s"/>
+      <rect class="contrib-cell" x="714" y="30" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.69s"/>
     </g>
 
   </g>
