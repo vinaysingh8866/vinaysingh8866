@@ -319,21 +319,21 @@
     <!-- Stat 1: Years -->
     <g class="stat-box" style="animation-delay: 0.1s">
       <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
-      <text x="90" y="50" class="stat-value" text-anchor="middle">10+</text>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">11+</text>
       <text x="90" y="72" class="stat-label" text-anchor="middle">Years Coding</text>
     </g>
 
     <!-- Stat 2: Repositories -->
     <g class="stat-box" style="animation-delay: 0.2s" transform="translate(210, 0)">
       <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
-      <text x="90" y="50" class="stat-value" text-anchor="middle">206+</text>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">105+</text>
       <text x="90" y="72" class="stat-label" text-anchor="middle">Repositories</text>
     </g>
 
     <!-- Stat 3: Contributions -->
     <g class="stat-box" style="animation-delay: 0.3s" transform="translate(420, 0)">
       <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
-      <text x="90" y="50" class="stat-value" text-anchor="middle">1.3k+</text>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">2.9k+</text>
       <text x="90" y="72" class="stat-label" text-anchor="middle">Contributions</text>
     </g>
   </g>
@@ -710,9 +710,8 @@
       <rect class="contrib-cell" x="714" y="15" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.68s"/>
       <rect class="contrib-cell" x="714" y="30" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.69s"/>
       <rect class="contrib-cell" x="714" y="45" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.70s"/>
-      <rect class="contrib-cell" x="714" y="60" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.71s"/>
+      <rect class="contrib-cell" x="714" y="60" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.71s"/>
     </g>
-
   </g>
 
   <!-- SECTION 4: TECH STACK (Y: 480-540) -->
