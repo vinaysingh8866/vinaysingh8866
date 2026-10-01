@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - '.github/scripts/generate-header.js'
+      - 'header-template.svg'
 
 jobs:
   update-header:

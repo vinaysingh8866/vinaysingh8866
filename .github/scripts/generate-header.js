@@ -130,35 +130,26 @@ async function main() {
     // Generate the contribution grid
     const contributionGrid = generateContributionGrid(calendar);
 
-    // Read the SVG template
-    let svgTemplate = fs.readFileSync('./header-complete.svg', 'utf8');
+    // Read the SVG template (use template file, not complete file)
+    let svgTemplate = fs.readFileSync('./header-template.svg', 'utf8');
 
-    // Replace stats
+    // Replace stats placeholders
     svgTemplate = svgTemplate.replace(/{{YEARS_CODING}}/g, `${yearsCoding}+`);
     svgTemplate = svgTemplate.replace(/{{REPOSITORIES}}/g, `${repositories}+`);
     svgTemplate = svgTemplate.replace(/{{CONTRIBUTIONS}}/g, `${totalContributions >= 1000 ? (totalContributions / 1000).toFixed(1) + 'k' : totalContributions}+`);
 
-    // Replace the contribution grid section
-    const gridStart = svgTemplate.indexOf('    <!-- Contribution grid: 52 weeks');
-    const gridEnd = svgTemplate.indexOf('  </g>\n\n  <!-- SECTION 4: TECH STACK');
-
-    if (gridStart === -1 || gridEnd === -1) {
-      throw new Error('Could not find contribution grid markers in SVG template');
-    }
-
-    const beforeGrid = svgTemplate.substring(0, gridStart);
-    const afterGrid = svgTemplate.substring(gridEnd);
-
-    const newSvg = beforeGrid +
+    // Replace the contribution grid placeholder
+    const gridContent =
       '    <!-- Contribution grid: 52 weeks (auto-generated) -->\n' +
       '    <g transform="translate(266, 330)">\n' +
       contributionGrid +
-      '    </g>\n\n' +
-      afterGrid;
+      '    </g>\n';
 
-    // Write the updated SVG
-    fs.writeFileSync('./header-complete.svg', newSvg, 'utf8');
-    console.log('✓ Successfully generated header-complete.svg with live data');
+    svgTemplate = svgTemplate.replace(/    <!-- Contribution grid placeholder -->\n    {{CONTRIBUTION_GRID}}\n/g, gridContent);
+
+    // Write the updated SVG to header-complete.svg
+    fs.writeFileSync('./header-complete.svg', svgTemplate, 'utf8');
+    console.log('✓ Successfully generated header-complete.svg from template with live data');
 
   } catch (error) {
     console.error('Error:', error.message);

@@ -1,0 +1,415 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 610" width="1200" height="610">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a3e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1">
+        <animate attributeName="stop-color" values="#00d4ff;#5A8CFF;#00d4ff" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#7b2ff7;stop-opacity:1">
+        <animate attributeName="stop-color" values="#7b2ff7;#00d4ff;#7b2ff7" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;display=swap');
+
+    * {
+      font-family: 'Orbitron', 'Courier New', monospace;
+    }
+
+    /* Header Styles */
+    .main-title {
+      font-size: 64px;
+      font-weight: 900;
+      fill: url(#titleGrad);
+      filter: url(#strongGlow);
+      text-anchor: middle;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      font-weight: 700;
+      fill: #00d4ff;
+      text-anchor: middle;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    .tagline {
+      font-size: 16px;
+      fill: #a0aec0;
+      text-anchor: middle;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    /* Stats Styles */
+    .stat-box {
+      opacity: 0;
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+      fill: #00d4ff;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      fill: #8b92a8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Contribution Grid Styles */
+    .section-title {
+      font-size: 14px;
+      fill: #8b92a8;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .grid-label {
+      font-size: 11px;
+      fill: #6b7280;
+      font-weight: 600;
+    }
+
+    .contrib-cell {
+      animation: popIn 0.3s ease-out forwards;
+      opacity: 0;
+    }
+
+    .contrib-cell-pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Tech Badge Styles */
+    .tech-badge {
+      opacity: 0;
+      animation: popInBadge 0.5s ease-out forwards;
+    }
+
+    .badge-text {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Particle Styles */
+    .particle {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .bg-particle {
+      animation: floatSlow 8s ease-in-out infinite;
+    }
+
+    /* Blockchain Block Styles */
+    .blockchain-block {
+      animation: blockSlideDown 12s linear infinite;
+      transform: translateY(-150px);
+      opacity: 0;
+    }
+
+    .block-hash {
+      font-size: 7px;
+      font-family: 'Courier New', monospace;
+      fill: #00d4ff;
+      opacity: 0.7;
+    }
+
+    .block-number {
+      font-size: 9px;
+      font-family: 'Orbitron', monospace;
+      fill: #7b2ff7;
+      font-weight: 700;
+    }
+
+    .block-chain-line {
+      stroke: #00d4ff;
+      stroke-width: 2;
+      opacity: 0.4;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popInBadge {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    @keyframes float {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translate(0, 0); opacity: 0.2; }
+      50% { transform: translate(30px, -40px); opacity: 0.5; }
+      100% { transform: translate(0, 0); opacity: 0.2; }
+    }
+
+    @keyframes blockSlideDown {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      5% {
+        opacity: 0.7;
+      }
+      95% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(710px);
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="610" fill="url(#bgGrad)"/>
+
+  <!-- Blockchain Animation - Left Side -->
+  <g id="blockchain-left">
+    <!-- Fixed vertical chain line that stays in place -->
+    <line x1="70" y1="0" x2="70" y2="610" stroke="#00d4ff" stroke-width="2" opacity="0.3" stroke-dasharray="8,4"/>
+
+    <!-- Animated blocks sliding down the chain -->
+    <g class="blockchain-block" style="animation-delay: 0s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2847</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x4f2a...9c1b</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 142</text>
+      <circle cx="70" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 3s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2848</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x7a8e...3d4f</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 198</text>
+      <circle cx="70" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 6s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2849</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x9b2c...5e7a</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 173</text>
+      <circle cx="70" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 9s">
+      <rect x="20" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="70" y="22" text-anchor="middle">Block #2853</text>
+      <text class="block-hash" x="70" y="38" text-anchor="middle">0x1f5d...7b3c</text>
+      <text class="block-hash" x="70" y="50" text-anchor="middle">Tx: 167</text>
+      <circle cx="70" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Blockchain Animation - Right Side -->
+  <g id="blockchain-right">
+    <!-- Fixed vertical chain line that stays in place -->
+    <line x1="1130" y1="0" x2="1130" y2="610" stroke="#7b2ff7" stroke-width="2" opacity="0.3" stroke-dasharray="8,4"/>
+
+    <!-- Animated blocks sliding down the chain -->
+    <g class="blockchain-block" style="animation-delay: 1.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2850</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x3c5f...8a2e</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 156</text>
+      <circle cx="1130" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 4.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2851</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x6d1a...4b9c</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 224</text>
+      <circle cx="1130" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 7.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2852</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x8e4b...2f7d</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 189</text>
+      <circle cx="1130" cy="65" r="5" fill="#7b2ff7" stroke="#7b2ff7" stroke-width="2" opacity="0.9"/>
+    </g>
+
+    <g class="blockchain-block" style="animation-delay: 10.5s">
+      <rect x="1080" y="0" width="100" height="65" rx="3" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+      <text class="block-number" x="1130" y="22" text-anchor="middle">Block #2854</text>
+      <text class="block-hash" x="1130" y="38" text-anchor="middle">0x2a9f...6e8d</text>
+      <text class="block-hash" x="1130" y="50" text-anchor="middle">Tx: 201</text>
+      <circle cx="1130" cy="65" r="5" fill="#00d4ff" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Animated Background Particles -->
+  <g id="bg-particles" opacity="0.6">
+    <circle class="bg-particle" cx="100" cy="100" r="4" fill="#00d4ff" style="animation-delay: 0s; animation-duration: 10s"/>
+    <circle class="bg-particle" cx="300" cy="200" r="3" fill="#7b2ff7" style="animation-delay: 1s; animation-duration: 12s"/>
+    <circle class="bg-particle" cx="500" cy="150" r="5" fill="#f107a3" style="animation-delay: 2s; animation-duration: 9s"/>
+    <circle class="bg-particle" cx="700" cy="250" r="4" fill="#00d4ff" style="animation-delay: 3s; animation-duration: 11s"/>
+    <circle class="bg-particle" cx="900" cy="180" r="3" fill="#7b2ff7" style="animation-delay: 1.5s; animation-duration: 13s"/>
+    <circle class="bg-particle" cx="1100" cy="280" r="4" fill="#f107a3" style="animation-delay: 2.5s; animation-duration: 10s"/>
+    <circle class="bg-particle" cx="200" cy="400" r="3" fill="#00d4ff" style="animation-delay: 0.5s; animation-duration: 14s"/>
+    <circle class="bg-particle" cx="400" cy="450" r="5" fill="#7b2ff7" style="animation-delay: 1.8s; animation-duration: 11s"/>
+    <circle class="bg-particle" cx="600" cy="500" r="4" fill="#f107a3" style="animation-delay: 2.2s; animation-duration: 12s"/>
+    <circle class="bg-particle" cx="800" cy="420" r="3" fill="#00d4ff" style="animation-delay: 0.8s; animation-duration: 13s"/>
+    <circle class="bg-particle" cx="1000" cy="480" r="4" fill="#7b2ff7" style="animation-delay: 3.2s; animation-duration: 10s"/>
+  </g>
+
+  <!-- SECTION 1: HEADER (Y: 0-180) -->
+  <g id="header-section">
+    <!-- Decorative particles -->
+    <circle class="particle" cx="100" cy="80" r="2" fill="#00d4ff" style="animation-delay: 0s"/>
+    <circle class="particle" cx="1100" cy="120" r="3" fill="#7b2ff7" style="animation-delay: 1s"/>
+    <circle class="particle" cx="200" cy="150" r="2" fill="#f107a3" style="animation-delay: 0.5s"/>
+
+    <!-- Main title -->
+    <text x="600" y="90" class="main-title">VINAY SINGH</text>
+
+    <!-- Subtitle -->
+    <text x="600" y="130" class="subtitle">🚀 Founder &amp; CEO, Ajna Inc</text>
+
+    <!-- Tagline -->
+    <text x="600" y="160" class="tagline">Building Blockchain &amp; Self-Sovereign Identity Solutions for the Decentralized Web</text>
+  </g>
+
+  <!-- SECTION 2: STATS (Y: 200-310) -->
+  <g id="stats-section" transform="translate(300, 200)">
+    <!-- Stat 1: Years -->
+    <g class="stat-box" style="animation-delay: 0.1s">
+      <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">{{YEARS_CODING}}</text>
+      <text x="90" y="72" class="stat-label" text-anchor="middle">Years Coding</text>
+    </g>
+
+    <!-- Stat 2: Repositories -->
+    <g class="stat-box" style="animation-delay: 0.2s" transform="translate(210, 0)">
+      <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">{{REPOSITORIES}}</text>
+      <text x="90" y="72" class="stat-label" text-anchor="middle">Repositories</text>
+    </g>
+
+    <!-- Stat 3: Contributions -->
+    <g class="stat-box" style="animation-delay: 0.3s" transform="translate(420, 0)">
+      <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">{{CONTRIBUTIONS}}</text>
+      <text x="90" y="72" class="stat-label" text-anchor="middle">Contributions</text>
+    </g>
+  </g>
+
+  <!-- SECTION 3: CONTRIBUTIONS (Y: 330-510) -->
+  <g id="contributions-section">
+    <!-- Day labels -->
+    <g transform="translate(206, 330)" class="grid-label">
+      <text x="0" y="12">Mon</text>
+      <text x="0" y="38">Wed</text>
+      <text x="0" y="64">Fri</text>
+    </g>
+
+    <!-- Contribution grid placeholder -->
+    {{CONTRIBUTION_GRID}}
+  </g>
+
+  <!-- SECTION 4: TECH STACK (Y: 480-540) -->
+  <g id="tech-section">
+    <!-- Section title -->
+    <text x="600" y="490" class="section-title" text-anchor="middle">🛠️ Tech Stack</text>
+
+    <!-- Tech badges - Row 1 -->
+    <g transform="translate(155, 515)">
+      <g class="tech-badge" style="animation-delay: 0.1s">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#7b2ff7" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">Solidity</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.15s" transform="translate(110, 0)">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#00d4ff" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="#0a0a1f" class="badge-text">Ethereum</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.2s" transform="translate(220, 0)">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#f107a3" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">DIDComm</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.25s" transform="translate(330, 0)">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#7b2ff7" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">Rust</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.3s" transform="translate(440, 0)">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#00d4ff" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="#0a0a1f" class="badge-text">Golang</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.35s" transform="translate(550, 0)">
+        <rect x="0" y="0" width="120" height="35" rx="17.5" fill="#f107a3" opacity="0.9"/>
+        <text x="60" y="23" text-anchor="middle" fill="white" class="badge-text">TypeScript</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.4s" transform="translate(680, 0)">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#7b2ff7" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="white" class="badge-text">OpenVM</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.45s" transform="translate(790, 0)">
+        <rect x="0" y="0" width="100" height="35" rx="17.5" fill="#00d4ff" opacity="0.9"/>
+        <text x="50" y="23" text-anchor="middle" fill="#0a0a1f" class="badge-text">Docker</text>
+      </g>
+    </g>
+
+    <!-- Tech badges - Row 2 (centered) -->
+    <g transform="translate(470, 560)">
+      <g class="tech-badge" style="animation-delay: 0.5s">
+        <rect x="0" y="0" width="80" height="35" rx="17.5" fill="#f107a3" opacity="0.9"/>
+        <text x="40" y="23" text-anchor="middle" fill="white" class="badge-text">IPFS</text>
+      </g>
+
+      <g class="tech-badge" style="animation-delay: 0.55s" transform="translate(90, 0)">
+        <rect x="0" y="0" width="90" height="35" rx="17.5" fill="#7b2ff7" opacity="0.9"/>
+        <text x="45" y="23" text-anchor="middle" fill="white" class="badge-text">AI Agents</text>
+      </g>
+    </g>
+  </g>
+</svg>
