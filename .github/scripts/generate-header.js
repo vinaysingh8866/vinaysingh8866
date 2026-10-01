@@ -7,9 +7,6 @@ async function fetchUserData(username, token) {
     query($username: String!) {
       user(login: $username) {
         createdAt
-        repositories(first: 100, ownerAffiliations: OWNER) {
-          totalCount
-        }
         contributionsCollection {
           contributionCalendar {
             totalContributions
@@ -126,12 +123,10 @@ async function main() {
     const createdDate = new Date(userData.createdAt);
     const now = new Date();
     const yearsCoding = Math.max(1, Math.floor((now - createdDate) / (365.25 * 24 * 60 * 60 * 1000)));
-    const repositories = userData.repositories.totalCount;
     // Use total contributions (all activity) instead of just commits
     const totalContributions = calendar.totalContributions;
 
     console.log(`Years Coding: ${yearsCoding}`);
-    console.log(`Repositories: ${repositories}`);
     console.log(`Total Contributions: ${totalContributions}`);
     console.log(`Weeks of data: ${calendar.weeks.length}`);
 
@@ -143,7 +138,6 @@ async function main() {
 
     // Replace stats placeholders
     svgTemplate = svgTemplate.replace(/{{YEARS_CODING}}/g, `${yearsCoding}+`);
-    svgTemplate = svgTemplate.replace(/{{REPOSITORIES}}/g, `${repositories}+`);
     svgTemplate = svgTemplate.replace(/{{CONTRIBUTIONS}}/g, `${totalContributions >= 1000 ? (totalContributions / 1000).toFixed(1) + 'k' : totalContributions}+`);
 
     // Replace the contribution grid placeholder
