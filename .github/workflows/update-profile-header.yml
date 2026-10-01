@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate profile header with live data
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
         run: node .github/scripts/generate-header.js
 

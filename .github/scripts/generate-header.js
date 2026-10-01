@@ -67,13 +67,20 @@ async function fetchUserData(username, token) {
   });
 }
 
+// Thresholds from the quartiles of active days, so the shading adapts to the user's activity level
+function getThresholds(days) {
+  const counts = days.map((d) => d.contributionCount).filter((c) => c > 0).sort((a, b) => a - b);
+  if (counts.length === 0) return [1, 1, 1];
+  const q = (p) => counts[Math.floor((counts.length - 1) * p)];
+  return [q(0.25), q(0.5), q(0.75)];
+}
+
 // Map contribution count to color (blue gradient only)
-function getContributionColor(count) {
-  // Use only blue gradient colors
+function getContributionColor(count, [q1, q2, q3]) {
   if (count === 0) return { color: '#1a1a3e', opacity: 1 };
-  if (count < 3) return { color: '#0d3d56', opacity: 1 };
-  if (count < 6) return { color: '#00d4ff', opacity: 0.5 };
-  if (count < 9) return { color: '#00d4ff', opacity: 0.8 };
+  if (count <= q1) return { color: '#0d3d56', opacity: 1 };
+  if (count <= q2) return { color: '#00d4ff', opacity: 0.5 };
+  if (count <= q3) return { color: '#00d4ff', opacity: 0.8 };
   return { color: '#00d4ff', opacity: 1 };
 }
 
@@ -82,13 +89,14 @@ function generateContributionGrid(calendar) {
   let svg = '';
   let delay = 0.1;
   const weeks = calendar.weeks.slice(-52); // Last 52 weeks
+  const thresholds = getThresholds(weeks.flatMap((week) => week.contributionDays));
 
   weeks.forEach((week, weekIndex) => {
     const x = weekIndex * 14; // 12px cell + 2px gap
 
     week.contributionDays.forEach((day) => {
       const y = day.weekday * 15; // 12px cell + 3px gap
-      const { color, opacity } = getContributionColor(day.contributionCount);
+      const { color, opacity } = getContributionColor(day.contributionCount, thresholds);
 
       svg += `      <rect class="contrib-cell" x="${x}" y="${y}" width="12" height="12" rx="2" fill="${color}" opacity="${opacity}" style="animation-delay: ${delay.toFixed(2)}s"/>\n`;
       delay += 0.01;
