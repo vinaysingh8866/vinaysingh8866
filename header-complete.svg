@@ -333,7 +333,7 @@
     <!-- Stat 3: Contributions -->
     <g class="stat-box" style="animation-delay: 0.3s" transform="translate(420, 0)">
       <rect x="0" y="0" width="180" height="90" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
-      <text x="90" y="50" class="stat-value" text-anchor="middle">3.1k+</text>
+      <text x="90" y="50" class="stat-value" text-anchor="middle">3.2k+</text>
       <text x="90" y="72" class="stat-label" text-anchor="middle">Contributions</text>
     </g>
   </g>
@@ -707,7 +707,8 @@
       <rect class="contrib-cell" x="700" y="75" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.65s"/>
       <rect class="contrib-cell" x="700" y="90" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.66s"/>
       <rect class="contrib-cell" x="714" y="0" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.67s"/>
-      <rect class="contrib-cell" x="714" y="15" width="12" height="12" rx="2" fill="#1a1a3e" opacity="1" style="animation-delay: 3.68s"/>
+      <rect class="contrib-cell" x="714" y="15" width="12" height="12" rx="2" fill="#00d4ff" opacity="1" style="animation-delay: 3.68s"/>
+      <rect class="contrib-cell" x="714" y="30" width="12" height="12" rx="2" fill="#00d4ff" opacity="0.8" style="animation-delay: 3.69s"/>
     </g>
   </g>
 
